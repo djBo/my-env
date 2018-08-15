@@ -1,0 +1,39 @@
+<div *ngIf="env">
+
+	<h2>{{env.id}}</h2>
+	
+	
+	
+	
+	
+	
+	<div><label>id:<input [(ngModel)]="env.id" placeholder="id"></label></div>
+	<div><span>version:</span>{{env.version}}</div>
+	<div><span>env:</span>{{env.env}}</div>
+	<div><span>status:</span>{{env.status}}</div>
+	<div><span>installed at:</span>{{env['installed-at']}}</div>
+	<div><span>stopped at:</span>{{env['stopped-at']}}</div>
+	<div><label>dc:<textarea placeholder="dc" cols="60" rows="15" disabled>{{base64_decode(env.dc)}}</textarea></label></div>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+</form>
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput [ngModel]="env.id" placeholder="ID" readonly>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput [ngModel]="env.dc" placeholder="dc" readonly></textarea>
+  </mat-form-field>
+
+</div>
+
+</div>

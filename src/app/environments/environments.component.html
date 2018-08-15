@@ -1,0 +1,34 @@
+
+<!-- <ul class="environments">
+  <li *ngFor="let env of envs"
+  	(click)="onSelect(env)"
+  	[class.selected]="env === currentEnv">
+    <span class="badge">{{env.id}}</span> {{env.version}}
+  </li>
+</ul> -->
+
+<mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+	<ng-container matColumnDef="id">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+		<mat-cell *matCellDef="let env"> {{env.id}} </mat-cell>
+	</ng-container>
+
+	<ng-container matColumnDef="version">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> Version </mat-header-cell>
+		<mat-cell *matCellDef="let env"> {{env.version}} </mat-cell>
+	</ng-container>
+
+	<ng-container matColumnDef="status">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+		<mat-cell *matCellDef="let env"> {{env.status}} </mat-cell>
+	</ng-container>
+
+	<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+	<mat-row *matRowDef="let row; columns: displayedColumns; let env;" (click)="onSelect(env)" [class.selected]="env === currentEnv"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+<!-- Add install button right here, which only updates status to "install" (cool huh) -->
+
+<app-environment-detail [env]="currentEnv"></app-environment-detail>
